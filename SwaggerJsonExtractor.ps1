@@ -1,5 +1,5 @@
 param (
-    [Parameter(Mandatory = $false,ValueFromPipeline=$true)]
+    [Parameter(Mandatory = $false, ValueFromPipeline = $true)]
     [string]
     $SwaggerJsonString = $null,
     [Parameter(Mandatory = $false)]
@@ -19,13 +19,15 @@ param (
     $SuppressClipboardOutput = $false,
     [Parameter(Mandatory = $false)]
     [switch]
-    $SuppressConsoleOutput = $false
+    $SuppressConsoleOutput = $false,
+    [switch]
+    $ForceFileOutput = $false
 )
 
 function Main {
     
     $swaggerJsonRaw = ""
-    if(![string]::IsNullOrWhiteSpace($SwaggerJsonString)){
+    if (![string]::IsNullOrWhiteSpace($SwaggerJsonString)) {
         $swaggerJsonRaw = $SwaggerJsonString
     }
     elseif ([string]::IsNullOrWhiteSpace($InputPath)) {
@@ -115,7 +117,12 @@ function Main {
         Write-Output $resultJson
     }
     if (![string]::IsNullOrWhiteSpace($OutputPath)) {
-        $resultJson | Out-File -FilePath $OutputPath -NoClobber
+        if ($ForceFileOutput) {
+            $resultJson | Out-File -FilePath $OutputPath
+        }
+        else {
+            $resultJson | Out-File -FilePath $OutputPath -NoClobber
+        }
     }
 
 }
