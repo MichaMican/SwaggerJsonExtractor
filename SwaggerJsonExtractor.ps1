@@ -12,13 +12,13 @@ param (
     [array]
     $PathsToExtract,
     [Parameter(Mandatory = $false)]
-    [bool]
+    [switch]
     $CompressOutputJson = $false,
     [Parameter(Mandatory = $false)]
-    [bool]
+    [switch]
     $SuppressClipboardOutput = $false,
     [Parameter(Mandatory = $false)]
-    [bool]
+    [switch]
     $SuppressConsoleOutput = $false
 )
 
