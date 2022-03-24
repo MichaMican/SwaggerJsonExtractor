@@ -25,7 +25,7 @@ param (
 function Main {
     
     $swaggerJsonRaw = ""
-    if([string]::IsNullOrWhiteSpace($SwaggerJsonString)){
+    if(![string]::IsNullOrWhiteSpace($SwaggerJsonString)){
         $swaggerJsonRaw = $SwaggerJsonString
     }
     elseif ([string]::IsNullOrWhiteSpace($InputPath)) {
