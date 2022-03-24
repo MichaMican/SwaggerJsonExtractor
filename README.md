@@ -31,6 +31,6 @@ This simple script helps you to extract only the paths you want from a swagger j
     ```powershell 
     PS> ./SwaggerJsonExtractor.ps1 -PathsToExtract @("/api/user/{id}", "/api/group/{id}")
     ```
-5. The script outputs the new Json to the console as well as to your clipboard.  
+5. The script outputs the new json to the console and pastes the json to your clipboard.  
        You can specify a outputfile with the property `-OutputPath` to have the result stored to a file  
        You can suppress the console output and the clipboard paste by using the `-SuppressConsoleOutput` and `-SuppressClipboardOutput`
